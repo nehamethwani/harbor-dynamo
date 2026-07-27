@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -uo pipefail
 
-mkdir -p /tmp/ctrf-report
 pytest /tests/test_outputs.py --ctrf=/tmp/ctrf-report/ctrf.json
 status=$?
 
