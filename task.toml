@@ -1,0 +1,32 @@
+artifacts = ["/app/report.json"]
+
+[task]
+name = "dynamo/sales-summary"
+description = "Parse a CSV of sales transactions and produce a structured JSON summary report."
+
+[metadata]
+category = "data_processing_and_etl"        # confirm against your real .dynamo/diversity-taxonomy.toml
+subcategory = "text_processing"             # confirm against your real .dynamo/diversity-taxonomy.toml
+task_objective = ["transform", "generate"]  # confirm against your real .dynamo/diversity-taxonomy.toml
+artifact_type = ["text_or_log_file", "generated_output_artifact"]  # confirm against your real taxonomy
+expert_time_estimate_hours = 0.3
+model_tested = "FILL_IN_WHAT_YOU_ACTUALLY_TESTED_WITH"
+agent_tested = "FILL_IN_WHAT_YOU_ACTUALLY_TESTED_WITH"
+difficulty_explanation = "Requires parsing a CSV with the standard library, summing a numeric column, tallying per-category counts, and picking a max with a first-seen tiebreak rule. No external dependencies or edge-case ambiguity."
+solution_explanation = "Read /app/sales.csv row by row, accumulate total revenue, per-category order counts, and per-customer spend in first-seen order, then write total_revenue, unique_customers, orders_by_category, and top_customer (first-seen max by spend) to /app/report.json."
+verification_explanation = "tests/test_outputs.py loads /app/report.json and asserts the four fields against values independently computed ahead of time from the fixed, baked-in sales.csv, so a stub or partial implementation cannot pass."
+
+[verifier]
+timeout_sec = 120.0
+
+[agent]
+timeout_sec = 120.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = false
+mcp_servers = []

@@ -1,0 +1,11 @@
+order_id,customer_id,category,amount
+1,C001,electronics,120.50
+2,C002,books,15.00
+3,C001,electronics,75.25
+4,C003,clothing,40.00
+5,C002,books,22.50
+6,C001,clothing,60.00
+7,C004,electronics,200.00
+8,C002,electronics,99.99
+9,C003,clothing,35.00
+10,C001,books,18.75

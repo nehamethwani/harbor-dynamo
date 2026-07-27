@@ -1,0 +1,10 @@
+# Placeholder only. Replace this file with your program's real, centrally-provided
+# .dynamo/diversity-taxonomy.toml and re-check that category/subcategory/task_objective/
+# artifact_type in task.toml above are drawn from it verbatim.
+
+categories = ["data_processing_and_etl"]
+
+[data_processing_and_etl]
+subcategories = ["text_processing"]
+task_objectives = ["transform", "generate"]
+artifact_types = ["text_or_log_file", "generated_output_artifact"]
